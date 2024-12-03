@@ -8,6 +8,7 @@ public class ListUtils {
 
   /**
    * Gets list sorted as ascending.
+   *
    * @param numbers the list of numbers.
    * @return the list sorted as ascending.
    */
@@ -19,6 +20,7 @@ public class ListUtils {
 
   /**
    * Gets list sorted as descending.
+   *
    * @param numbers the list of numbers.
    * @return the list sorted as descending.
    */
@@ -30,6 +32,7 @@ public class ListUtils {
 
   /**
    * Gets the number of occurrences of a specific element.
+   *
    * @param numbers the list of elements.
    * @param element the element to search.
    * @return the number of occurrences.
@@ -42,5 +45,61 @@ public class ListUtils {
       }
     }
     return count;
+  }
+
+  /**
+   * Validates if the list is ordered in ascending order.
+   *
+   * @param numbers the list to validate.
+   * @return true if the list is ordered in ascending order, false otherwise.
+   */
+  private static boolean isOrderedAscending(List<Integer> numbers) {
+    for (int i = 1; i < numbers.size(); i++) {
+      if (numbers.get(i) < numbers.get(i - 1)) {
+        return false; // Found an element that is less than the previous one
+      }
+    }
+    return true; // The list is ordered in ascending order
+  }
+
+  /**
+   * Validates if the list is ordered in descending order.
+   *
+   * @param numbers the list to validate.
+   * @return true if the list is ordered in descending order, false otherwise.
+   */
+  private static boolean isOrderedDescending(List<Integer> numbers) {
+    for (int i = 1; i < numbers.size(); i++) {
+      if (numbers.get(i) > numbers.get(i - 1)) {
+        return false; // Found an element that is greater than the previous one
+      }
+    }
+    return true; // The list is ordered in descending order
+  }
+
+  /**
+   * Validates if the list is ordered (ascending or descending).
+   *
+   * @param numbers the list to validate.
+   * @return true if the list is ordered in descending or ascending order, false otherwise.
+   */
+  public static boolean isOrdered(List<Integer> numbers) {
+    return isOrderedAscending(numbers) || isOrderedDescending(numbers);
+  }
+
+  /**
+   * Removes a specific index from the list
+   *
+   * @param numbers the list to remove element.
+   * @param index   the index of element to remove.
+   */
+  public static List<Integer> removeAtIndex(List<Integer> numbers, int index) {
+    if (index < 0 || index >= numbers.size()) {
+      System.out.println("Index out of bounds: " + index); // Handle invalid index
+      return new ArrayList<>(numbers); // Return a copy of the original list
+    }
+    List<Integer> newList = new ArrayList<>(numbers); // Create a copy of the original list
+    newList.remove(index); // Remove the element at the specified index
+    return newList; // Return the new list
   }
 }
