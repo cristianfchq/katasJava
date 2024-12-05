@@ -127,6 +127,7 @@ public class Main {
 
     // Print the updated List of Lists
     System.out.println("Updated List of Lists: " + listOfLists);
+    System.out.println("prueba");
 
   }
 
