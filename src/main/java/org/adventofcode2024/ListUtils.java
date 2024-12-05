@@ -102,4 +102,13 @@ public class ListUtils {
     newList.remove(index); // Remove the element at the specified index
     return newList; // Return the new list
   }
+
+  public static void updateValueAtPosition(List<List<Integer>> listOfLists, int x, int y, int newValue) {
+    // Check if the indices are within bounds
+    if (x >= 0 && x < listOfLists.size() && y >= 0 && y < listOfLists.get(x).size()) {
+      listOfLists.get(x).set(y, newValue); // Update the value
+    } else {
+      System.out.println("Invalid indices: (" + x + ", " + y + ")");
+    }
+  }
 }

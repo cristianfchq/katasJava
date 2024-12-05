@@ -63,4 +63,26 @@ public class StringUtils {
     }
     return allStrings;
   }
+
+  /**
+   * Finds all occurrences of a substring in a main string.
+   *
+   * <p>For example</p>
+   * <p> mainString = "This is a test string. This string is for testing."</p>
+   * <p> substring = "is"</p>
+   *
+   * <p> return = [2, 5, 25, 35]</p>
+   *
+   * @param mainString the main string.
+   * @param substring  the substring to find.
+   */
+  public static List<Integer> findAllOccurrences(String mainString, String substring) {
+    List<Integer> positions = new ArrayList<>();
+    int index = 0;
+    while ((index = mainString.indexOf(substring, index)) != -1) {
+      positions.add(index);
+      index++;
+    }
+    return positions;
+  }
 }
